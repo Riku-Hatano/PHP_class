@@ -1,0 +1,47 @@
+<?php include('./modules/docObj.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+        $doc1 = new doctor("Bella","Jun","1950","General",235879654);
+        $doc2 = new doctor("Riku","Mauricio","2000","Cardiology",287596548);
+        $docs = [$doc1,$doc2];
+    ?>
+    <table>
+        <thead>
+            <tr>
+                <th>Medical ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Speciality</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach($docs as $data){
+                    $docProp = $data->show_info();
+                    // echo "<tr><td>";
+                    // echo $docProp['id'];
+                    // echo "</td><td>";
+                    // echo $docProp['fname']." ".$docProp['lname'];
+                    // echo "</td><td>";
+                    // echo $docProp['spec'];
+                    // echo "</td></tr>";
+                    echo "<tr>";
+                    foreach($docProp as $key=>$val){
+                        if($key=="dob") continue;
+                        echo "<td>$val</td>";
+                    }
+                    echo "</tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+</body>
+</html>

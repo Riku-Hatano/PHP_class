@@ -11,12 +11,12 @@
         if(isset($_GET['picurl'])){
             echo $_GET['picurl'];
         }
-    ?>"
+    ?>">
     <h1>
         <?php
             echo "<h3>".$_GET['picurl']."</h3>";
-            echo "<p>and</p>";
-            echo $_GET['picurl2'];
+            echo "<p>and</p>";            
+            echo "<h3>".$_GET['picurl2']."</h3>";
         ?>
     </h1>
 <?php
