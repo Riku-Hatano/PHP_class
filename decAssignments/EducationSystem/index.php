@@ -21,7 +21,7 @@
          
           <select class="form-select form-select-lg" name="role">
             <option value="tech">Teacher</option>
-            <option value="st" selected>Student</option>
+            <option value="st">Student</option>
             <option value="admin" selected>Admin</option>
           </select>
         </div>

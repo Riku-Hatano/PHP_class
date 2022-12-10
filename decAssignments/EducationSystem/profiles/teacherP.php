@@ -12,11 +12,18 @@ if(!isset($_SESSION['logUser'])) {
         <div class="card text-start">
           <div class="card-body">
             <?php
-                print_r($_SESSION["logUser"]);
-                echo "<h4 class='card-title'>".$_SESSION['logUser']['first_name']." ".$_SESSION['logUser']['last_name']."</h4>";
-                echo "<p class='card-text'>".$_SESSION['logUser']['id']."</p>";
-                echo "<p class='card-text'>".$_SESSION['logUser']['email']."</p>";  
+              echo "<h4 class='card-title'>".$_SESSION['logUser']['first_name']." ".$_SESSION['logUser']['last_name']."</h4>";
+              echo "<p class='card-text'>".$_SESSION['logUser']['id']."</p>";
+              echo "<p class='card-text'>".$_SESSION['logUser']['email']."</p>";  
             ?>
+          </div>
+          <div class="card text-start">
+          <select name="html">HTML</select>
+            <select name="css">CSS</select>
+            <select name="javascript">JavaScript</select>
+            <select name="javascriptA">JavaScript Advance</select>
+            <select name="php">PHP</select>
+            <select name="cms">CMS</select>
           </div>
         </div>
     </div>

@@ -39,17 +39,17 @@
                 $email = $_POST['email'];
                 $pass = $_POST['pass'];
                 $file = fopen('./data/admins/admins.json','r');
-                $stArray = json_decode(fread($file,filesize('./data/admins/admins.json')),true);
-                foreach($stArray as $tech){
-                    if($tech['email']==$email && $tech['pass']==$pass){
-                        $_SESSION['logUser'] = $tech;
-                        print_r($tech);
+                $adminArray = json_decode(fread($file,filesize('./data/admins/admins.json')),true);
+                foreach($adminArray as $key){
+                    if($adminArray['email']==$email && $adminArray['pass']==$pass){
+                        $_SESSION['logUser'] = $adminArray;
+                        print_r($adminArray);
                         header("Location: ".$baseName.'profiles/adminP.php');
                         exit();
                         break;
                     }
                 }
-                header("Location: ".$baseName.'index.php?msg=1');
+                header("Location: ".$baseName."index.php?msg=1");
                 break;
             
             default:
