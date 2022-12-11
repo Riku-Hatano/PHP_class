@@ -29,6 +29,7 @@
             foreach($decodedData as $student){
                 if($student["stID"]==$id){
                     array_push($pushArray, new student($student["fname"], $student["lname"], $student["stID"], 0));
+                    break;
                 }
             }
             fclose($stFile);
@@ -48,6 +49,7 @@
             foreach($decodedData as $student){
                 if($student["stID"]==$id){
                     array_push($pushArray, new student($student["fname"], $student["lname"], $student["stID"], 0));
+                    break;
                 }
             }
             print_r($pushArray);
@@ -56,6 +58,7 @@
             $file = fopen("./courses/$class/$class.json", "w");
             fwrite($file, json_encode($pushArray));
             fclose($file);
+            // header("Location: ".)
         }
     }
 ?>
