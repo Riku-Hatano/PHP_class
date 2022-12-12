@@ -14,6 +14,7 @@
     }
 
     if($_SERVER["REQUEST_METHOD"]=="POST"){
+        
         $id = $_POST["id"];
         $class = $_POST["class"];
         if(!is_dir("./courses/$class")) {
@@ -46,18 +47,31 @@
             $file = fopen("./data/students/students.json", "r");
             $stData = fread($file, filesize("./data/students/students.json"));
             $decodedData = json_decode($stData, true);
+            fclose($file);
+            $classFile = fopen("./courses/$class/$class.json", "r");
+            $classData = fread($classFile, filesize("./courses/$class/$class.json"));
+            $decodedClassData = json_decode($classData, true);
+            fclose($classFile);
             foreach($decodedData as $student){
                 if($student["stID"]==$id){
+                    foreach($decodedClassData as $existID){
+                        if($existID["stID"]==$id) {
+                            echo "this student is already exists";
+                            return;
+                        }   
+                    }
                     array_push($pushArray, new student($student["fname"], $student["lname"], $student["stID"], 0));
+                    $file = fopen("./courses/$class/$class.json", "w");
+                    fwrite($file, json_encode($pushArray));
+                    fclose($file);
                     break;
                 }
             }
             print_r($pushArray);
-            fclose($file);
 
-            $file = fopen("./courses/$class/$class.json", "w");
-            fwrite($file, json_encode($pushArray));
-            fclose($file);
+            // $file = fopen("./courses/$class/$class.json", "w");
+            // fwrite($file, json_encode($pushArray));
+            // fclose($file);
             // header("Location: ".)
         }
     }

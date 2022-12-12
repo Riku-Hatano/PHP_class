@@ -34,10 +34,10 @@ if(!isset($_SESSION['logUser'])) {
           <?php
             if($_SERVER["REQUEST_METHOD"]=="POST"){
               $class = $_POST["class"];
-              echo "<h4>$class is selected</h4>";
+              echo "<h4>choose a student</h4>";
               echo "<form action='../changeScore.php' method='POST'>";
                 echo "<select name='id'>";
-                  $file = fopen("../courses/$class/$class.json", "r");
+                $file = fopen("../courses/$class/$class.json", "r");
                   $data = fread($file, filesize("../courses/$class/$class.json"));
                   $decodedData = json_decode($data, true);
                   foreach($decodedData as $data){
@@ -49,7 +49,6 @@ if(!isset($_SESSION['logUser'])) {
                   echo "<input type='text' name='score'>";
                   echo "<input type='submit' value='change score'>";
                   $_SESSION["logUser"]["class"] = $class;
-
                 echo "</select>";
               echo "</form>";
             } else {
@@ -65,6 +64,7 @@ if(!isset($_SESSION['logUser'])) {
             if($decodedData == false){
               echo "no student data yet!!";
             } else {
+              echo "<h4>$class students</h4>";
               foreach($decodedData as $data){
                 $sendId = $data["stID"];
                 echo "<li>".$data["fname"]." ".$data["lname"]." ".$data["stID"]." ".$data["score"]."</li>";
