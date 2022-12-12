@@ -45,11 +45,15 @@ if(!isset($_SESSION['logUser'])) {
             </form>
           </div>
         </div>
-        <div class="card-body">
-          <h1>new div</h1>
-        </div>
       </div>
     </div>
 </div>
+<?php
+    if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET["stID"])){
+        $stID = $_GET["stID"];
+        $class = $_GET["class"];
+        echo "<h3>$stID is sent to $class class!</h3>";
+    }
+?>
 
 <?php include dirname(__FILE__)."/../pages/footer.php"; ?>

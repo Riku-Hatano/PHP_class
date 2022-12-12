@@ -3,9 +3,6 @@
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         session_start();
         if($_POST["score"] > 0 && $_POST["score"] <= 100 || $_POST["score"]=="0"){
-            //postから送信されて来る値は文字列
-            //intに変更しようとするとゼロになってしまう
-            //使おうと思えば使える解決策。。。コンディションにゼロを含める。ただし生徒の点数がゼロにできなくなる。
             $newScore = $_POST["score"];
             $stID = $_POST["id"];
             $path = $_SESSION["logUser"]["class"];
@@ -22,14 +19,15 @@
                     break;
                 }
             }
-            header("Location: ".$baseName."/profiles/teacherP.php");
+            header("Location: ".$baseName."/profiles/teacherP.php?msg=no students!");
 
         } else {
-            echo "illegal score";
-            header("Location: ".$baseName."/profiles/teacherP.php");
+            header("Location: ".$baseName."/profiles/teacherP.php?msg=illegal data!");
         }
     } else {
-        echo "illegal request method!!";
+        header("Location: ".$baseName."/profiles/teacherP.php");
     }
 ?>
-<?php include dirname(__FILE__)."/pages/footer.php"; ?>
+
+
+<?php include dirname(__FILE__)."/pages/footer.php?msg=illegal method!"; ?>

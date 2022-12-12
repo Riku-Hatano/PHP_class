@@ -1,3 +1,4 @@
+<?php include dirname(__FILE__)."/data/config.php"; ?>
 <?php
     class student {
         public $fname;
@@ -64,15 +65,12 @@
                     $file = fopen("./courses/$class/$class.json", "w");
                     fwrite($file, json_encode($pushArray));
                     fclose($file);
+                    $stID = $student["stID"];
+                    header("Location: ".$baseName."profiles/adminP.php?stID=$stID&class=$class");
                     break;
                 }
             }
             print_r($pushArray);
-
-            // $file = fopen("./courses/$class/$class.json", "w");
-            // fwrite($file, json_encode($pushArray));
-            // fclose($file);
-            // header("Location: ".)
         }
     }
 ?>

@@ -74,4 +74,10 @@ if(!isset($_SESSION['logUser'])) {
         ?>
       </ol>
     </div>
+    <?php
+      if($_SERVER["REQUEST_METHOD"]=="GET"){
+        $msg = $_GET["msg"];
+        echo "<h1>$msg</h1>";
+      }
+    ?>
 </div>
