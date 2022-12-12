@@ -19,7 +19,7 @@
                     break;
                 }
             }
-            header("Location: ".$baseName."/profiles/teacherP.php?msg=no students!");
+            header("Location: ".$baseName."/profiles/teacherP.php?msg=score was changed!");
 
         } else {
             header("Location: ".$baseName."/profiles/teacherP.php?msg=illegal data!");
