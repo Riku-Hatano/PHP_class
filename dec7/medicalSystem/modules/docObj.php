@@ -22,4 +22,6 @@
             return json_encode($this->show_info());
         }
     }
+    // $doc = new doctor($fname,$lname,$pass,$spec,$medid,$imgurl);
+
 ?>

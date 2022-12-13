@@ -31,8 +31,6 @@
                         foreach($user as $element) {
                             echo "<td>$element</td>";
                         }
-                        // $pathWithQ = $_SERVER["PHP_SESLF"]?fname=$user["first_name"]&lname=$user["last_name"];
-                        echo "<a href='$pathWithQ'>";
                     echo "</tr>";
                 }
             ?>
