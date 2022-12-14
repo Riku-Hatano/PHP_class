@@ -1,0 +1,5 @@
+// create new array except the . .. and .DS_Store
+$dataFiles = array_diff(scandir("./data"), array('.', '..', '.DS_Store'));
+// reindex the array
+$dataFiles = array_values($dataFiles);
+print_r($dataFiles);
