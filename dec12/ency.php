@@ -16,6 +16,9 @@
     fclose($file);
     echo "<p>$enc_text</p>";
     $dec_text = openssl_decrypt($enc_text,$cipher_alog,$key,0,$iv,$tag);
+    $file = fopen("./contactlist.json", "w");
+    fwrite($file, $dec_text);
+    fclose($file);
     echo "<p>$tag</p>";
     echo "<p>$dec_text</p>";
 ?>
