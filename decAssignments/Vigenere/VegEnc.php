@@ -23,7 +23,6 @@
             $cl = strpos($VigString, $message[$i]);
             $encriptedLetter = $VigString[($cl + $ck) % strlen($VigString)];
             array_push($encriptedString, $encriptedLetter);
-            // echo "<h3>$cl : $ck : $encriptedLetter</h3>";
         }
         $encriptedString = implode($encriptedString);
 

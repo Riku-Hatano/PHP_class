@@ -25,15 +25,16 @@
                 $file = fopen('./path.json', 'r');
                 $files = json_decode(fread($file, filesize('./path.json')), true);
                 echo "<h3>download links</h3>";
-                echo "<ol>";
+                echo "<ul>";
                 foreach ($files as $eachFile) {
                     $fileName = $eachFile['fileName'];
                     $note = $eachFile['note'];
                     echo "<li>";
-                    echo "<a href='./files/".$fileName.".txt'>$fileName</a>";
+                    echo "<a href='./download.php?fileName=$fileName'>$fileName</a>";
+                    // echo "<a href='./files/".$fileName.".txt'>$fileName</a>";
                     echo "</li>";
                 }
-                echo "</ol>";
+                echo "</ul>";
             } else {
                 echo "<h3>no files yet!!</h3>";
             }
