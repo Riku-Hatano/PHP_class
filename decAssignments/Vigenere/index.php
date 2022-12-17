@@ -12,6 +12,8 @@
         if (isset($_GET['msg']) == true) {
             echo "<h2>".$_GET['msg']."</h2>";
         }
+        //if we send file successfully, VegEnc will send querystring and show message here.
+        //so, if we can visit this page for the first time, msg will not be shown.
     ?>
     <form action="./VegEnc.php" method="POST">
         <input type="text" name="note" placeholder="note" required>
@@ -29,14 +31,16 @@
                 foreach ($files as $eachFile) {
                     $fileName = $eachFile['fileName'];
                     $note = $eachFile['note'];
-                    echo "<li>";
+                    echo "<li>note: $note  ";
                     echo "<a href='./download.php?fileName=$fileName'>$fileName</a>";
-                    // echo "<a href='./files/".$fileName.".txt'>$fileName</a>";
                     echo "</li>";
+                    //show all of ecripted or decripted files in "./file".
+                    //to click the a tag, we will jump to another page and decript that file with key.
                 }
                 echo "</ul>";
             } else {
                 echo "<h3>no files yet!!</h3>";
+                //if there were no file, this will be shown instead of the list of files. 
             }
         ?>
     </ul>

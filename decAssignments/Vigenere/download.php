@@ -16,20 +16,15 @@
     <?php 
     if (isset($_GET['fileName'])) {
         $fileName = $_GET['fileName'];
-        // session_start();
-        // $_SESSION['fileName'] = $fileName;
 
         echo "<form action='./VegDec.php' method='POST'>";
-        // echo "<form action=".$_SERVER['PHP_SELF']."?decriptedFilePath=$fileName method='GET'>";
-            echo "<input type='text' name='fileName' value='$fileName'>";
+            echo "<input type='text' name='fileName' value='$fileName'>";//i will change here later
             echo "<input type='text' name='key' placeholder='key'>";
             echo "<input type='submit' value='decript'>";
+            //jump to decoding file with filename and key for decription. 
+            //but i have to fix name="filename" because it doesnt have to put on input tag.
         echo "</form>";
     }
-    // if (isset($_GET['key'])) {
-    //     echo "<p>".$_GET['key']."</p>";
-    //     echo "<p>".$_SERVER['QUERY_STRING']['decriptedFilePath']."</p>";
-    // }
     ?>
 </body>
 </html>

@@ -16,6 +16,8 @@
             $cl = strpos($VigString, $encriptedMessage[$i]);
             $decriptedLetter = $VigString[($cl - $ck) % strlen($VigString)];
             array_push($decriptedString, $decriptedLetter);
+            //what the proposal doing here is same as encode.
+            //by substract $ck from $cl, we can decript. 
         }
         $decriptedString = implode($decriptedString);
         echo $decriptedString;
