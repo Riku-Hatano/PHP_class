@@ -23,7 +23,7 @@
             $currentLetter = $message[$i];
             //currentLetter is $i th letter of $message.
             $ck = strpos($VigString, $currentKey);
-            //checking the where the $currentKey located on teh $VigString. by turning out the number.
+            //checking the where the $currentKey located on the $VigString. by turning out the number.
             $cl = strpos($VigString, $message[$i]);
             //same as $ck.
             $encriptedLetter = $VigString[($cl + $ck) % strlen($VigString)];

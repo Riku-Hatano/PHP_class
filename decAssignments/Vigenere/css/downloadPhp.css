@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    width: 80%;
+}
+
+input {
+    padding: 1vh;
+}
+
+[type="submit"] {
+    width: 25%;
+    padding: 1vh;
+}
