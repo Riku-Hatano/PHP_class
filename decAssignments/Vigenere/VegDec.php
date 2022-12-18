@@ -1,7 +1,8 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        session_start();
         $key = $_POST['key'];
-        $fileName = $_POST['fileName'];
+        $fileName = $_SESSION['fileName'];
         $file = fopen("./files/$fileName.txt", "r");
         $encriptedMessage = fread($file, filesize("./files/$fileName.txt"));
         fclose($file);
@@ -26,8 +27,8 @@
                     //by substract $ck from $cl, we can decript. 
                 }
                 $decriptedString = implode($decriptedString);
-                echo "<p>$decriptedString</p>";
-                echo "<p>$encriptedMessage</p>";
+                echo "<p>decripted message: $decriptedString</p>";
+                echo "<p>ecnripted message: $encriptedMessage</p>";
                 echo "<a href='./index.php'>go back to main page</a>";
                 exit();
                 break;

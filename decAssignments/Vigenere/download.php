@@ -17,13 +17,15 @@
     <?php 
     if (isset($_GET['fileName'])) {
         $fileName = $_GET['fileName'];
+        session_start();
+        $_SESSION['fileName'] = $fileName;
         ///////////////////////////////////////////////////////////
         //I WILL MAKE DOWNLOAD FORM LATER. DONT FORGET!!!!!!!!!!!!!
         //AND I WILL MAKE THE KEY ENCRIPTED ALSO!!!!!!!!!!!!!!!!!!!
         ///////////////////////////////////////////////////////////
         echo "<form action='./VegDec.php' method='POST'>";
-            echo "<label for'fileName'>file name: </label>";
-            echo "<input type='text' name='fileName' id='fileName' value='$fileName' required>";//i will change here later
+            // echo "<label for'fileName'>file name: </label>";
+            // echo "<input type='text' name='fileName' id='fileName' value='$fileName' required>";
             echo "<label for'key'>key: </label>";
             echo "<input type='text' name='key' id='key' placeholder='key' required>";
             echo "<input type='submit' value='decript'>";
