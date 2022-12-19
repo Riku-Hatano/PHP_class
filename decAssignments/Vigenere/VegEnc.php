@@ -7,7 +7,7 @@
             array_push($fileName, $letters[mt_rand(0, count($letters) - 1)]);
         }
         //from line 2 to 8, i made the file whose name is random.
-        $fileName = implode($fileName);
+        $fileName = 'VegEnc'.'='.implode($fileName);
 
         $note = $_POST['note'];
         $key = $_POST['key'];

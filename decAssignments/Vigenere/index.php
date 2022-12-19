@@ -24,6 +24,11 @@
         <textarea name="message" cols="30" rows="10" required></textarea>
         <input type="submit" value="send message">
     </form>
+    <form action="VegDec.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="text" name="key" placeholder="key" required>
+        <input type="submit" value="submit file">
+    </form>
     <ul>
         <?php
             if (file_exists('./path.json')) {
@@ -35,7 +40,7 @@
                     $fileName = $eachFile['fileName'];
                     $note = $eachFile['note'];
                     echo "<li>note: $note  ";
-                    echo "<a href='./download.php?fileName=$fileName'>$fileName</a>";
+                    echo "<a href='".$_SERVER['PHP_SELF']."?fileName=$fileName'>$fileName</a>";
                     echo "</li>";
                     //show all of ecripted or decripted files in "./file".
                     //to click the a tag, we will jump to another page and decript that file with key.
@@ -49,3 +54,15 @@
     </ul>
 </body>
 </html>
+    <?php
+        if (isset($_GET['fileName']) == true) {
+            $fileName = $_GET['fileName'];
+            $filePath = "/Applications/XAMPP/xamppfiles/htdocs/Dec/decAssignments/Vigenere/files/$fileName.txt";
+            header('Content-Type: text/plane');
+            header("Content-Disposition:attachment;filename = $fileName.txt");
+            header('Content-Length: '.filesize($filePath));
+            while (ob_get_level()) { ob_end_clean(); }
+            readfile($filePath);
+            exit();
+        }
+    ?>
