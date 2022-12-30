@@ -30,21 +30,16 @@
                     //by substract $ck from $cl, we can decript. 
                 }
 
-                $file = fopen($tmpPath, 'w');
                 $decriptedString = implode($decriptedString);
-                fwrite($file, $decriptedString);
-                fclose($file);
+              
                 echo "<p>decripted message: $decriptedString</p>";
                 // echo "<p>ecnripted message: $encriptedMessage</p>";
                 echo "<a href='./index.php'>go back to main page</a>";
                 exit();
-       
                 break;
             }
         }
         echo "your key is wrong!!!";
         echo "<a href='./index.php'>go back to main page</a>";
-    } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
     }
 ?>

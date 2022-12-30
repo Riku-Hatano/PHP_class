@@ -14,6 +14,10 @@
         }
     }
 
+    $student1 = new student("riku", "hatano", 4444, 2222);
+
+    var_dump($student1);
+
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         
         $id = $_POST["id"];

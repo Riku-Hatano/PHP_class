@@ -2,16 +2,16 @@
 
 $file = fopen('./contactlist.json','r');
 $data = fread($file,filesize('./contactlist.json'));
-echo $data;
+$jsonizedData = json_encode($data);
 fclose($file);
 $file = fopen('./ivs.dat','r');
 $ivdata = fread($file,filesize('./ivs.dat'));
 $ivdata = explode(",",$ivdata);
 fclose($file);
-$data = openssl_decrypt($data,$cipher_alog,$key,0,$ivdata[0],$ivdata[1]);
+$decriptedData = openssl_decrypt($jsonizedData,$cipher_alog,$key,0,$ivdata[0],$ivdata[1]);
 
 //でクリプトができてない
-$data = json_decode($data,true);
+$decodedData = json_decode($decriptedData,true);
 if($_SERVER['REQUEST_METHOD']=="POST"){
     foreach($data[$_POST['idx']] as $key=>$val){
         if($key=="id") continue;
@@ -65,11 +65,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                 // print_r($data2);
                 // echo "<p>$data2</p>";
                 // print_r(openssl_decrypt($data,$cipher_alog,$key,0,$ivdata[0],$ivdata[1]));
-                echo "<p>$data</p>";
+                // echo "<p>$decodedData</p>";
+                // var_dump($data);
                 echo "<p>$cipher_alog</p>";
                 echo "<p>$key</p>";
                 echo "<p>$ivdata[0]</p>";
                 echo "<p>$ivdata[1]</p>";
+
                 // echo "<p>$ivdata[2]</p>";
                 foreach($data as $key=>$val){
                     echo "<tr class='table-primary' >";

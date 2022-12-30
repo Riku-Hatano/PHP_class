@@ -40,10 +40,15 @@ class dbServices{
         // var_dump($fname);
         // var_dump($fname['fname']);
         // $ffname = $fname['fname'];
-        $mysqlCmd = "SELECT * FROM $tbName";
+        $mysqlCmd = "SELECT * FROM $tbName WHERE role='1'";
         $value = $this->dbcon->query($mysqlCmd);
+        $value2 = $value->fetch_assoc();
         // var_dump($value);
         print_r($value);
+        print_r($value2);
+        // echo "<p>$tbName</p>";
+        // print_r($fname);
+        // print_r($data);
         // print_r($this->dbcon);
         // return $value;
     }
